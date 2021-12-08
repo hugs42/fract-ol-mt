@@ -6,7 +6,7 @@
 #    By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/24 18:42:27 by hugsbord          #+#    #+#              #
-#    Updated: 2021/07/28 18:24:57 by hugsbord         ###   ########.fr        #
+#    Updated: 2021/12/08 12:14:09 by hugsbord         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,12 +25,20 @@ INC = -I./inc
 
 FLAGS = -Wall -Wextra -Werror
 
-LIBS=$(LIBS_MAC)
+OS = $(shell uname)
+
+LIBS = $(LIBS_MAC)
 MLX_D = ./minilibx_opengl_macOS
 
-LIBS_MAC =-L ./libft -lft -L $(MLX_D) -lmlx -framework OpenGL -framework AppKit
+LIBS_MAC =-L ./libft -lft -L  $(MLX_D) -lmlx -framework OpenGL -framework AppKit
 
 LIBS_LINUX =-L ./libft -L $(MLX_D) -lft -lmlx -lm -lbsd -lX11 -lXext
+
+ifeq ($(OS), Linux)
+	LIBS = $(LIBS_LINUX)
+else
+	LIBS = $(LIBS_MAC)
+endif
 
 OBJ=$(SRCS:.c=.o)
 

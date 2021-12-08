@@ -6,7 +6,7 @@
 /*   By: hugsbord <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/24 18:45:40 by hugsbord          #+#    #+#             */
-/*   Updated: 2021/09/29 11:26:49 by hugsbord         ###   ########.fr       */
+/*   Updated: 2021/12/08 12:16:10 by hugsbord         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <math.h>
 # include <mlx.h>
+# include <pthread.h>
 # include "./../libft/libft.h"
 
 # define ERROR -1
@@ -38,6 +39,7 @@
 # define MANDEL 2
 # define BURNING 3
 # define MULTI 4
+# define THREADS 8
 
 typedef struct s_img
 {
